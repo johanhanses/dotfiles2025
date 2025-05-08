@@ -1,0 +1,33 @@
+[user]
+  name = Johan Hanses
+  email = johanhanses@gmail.com
+[init]
+  defaultBranch = main
+[pull]
+  rebase = false
+[push]
+  autoSetupRemote = true
+  default = current
+[merge]
+  conflictstyle = diff3
+[diff]
+  colorMoved = default
+[include]
+  path = ~/themes.gitconfig
+[delta]
+  line-numbers = true
+  navigate = true
+  theme = "OneHalfDark"  # or "Atom One Dark"
+  light = false  # Set to true if you use a light terminal background
+  side-by-side = false  # Set to true if you want side-by-side view
+  decorations = true
+[core]
+  excludesfile = ~/.gitignore_global
+  pager = delta
+[interactive]
+  diffFilter = delta --color-only
+[pager]
+  diff = delta
+  log = delta
+  reflog = delta
+  show = delta

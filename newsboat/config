@@ -1,0 +1,25 @@
+# Maximum items to keep per feed
+max-items 500
+
+# Basic display settings
+show-read-feeds yes
+feed-sort-order unreadarticlecount-asc
+
+# Colors and formatting
+color background default default
+color listnormal default default
+color listfocus black yellow
+color listnormal_unread default default bold
+color listfocus_unread black yellow bold
+color info black blue bold
+color article default default
+
+# Key bindings
+bind-key j down
+bind-key k up
+bind-key J next-feed
+bind-key K prev-feed
+bind-key G end
+bind-key g home
+bind-key l open
+bind-key h quit
