@@ -6,7 +6,7 @@ DOTFILES="$(pwd)"
 DOTFILES_PRIVATE="$HOME/Repos/github.com/johanhanses/dotfiles-private"
 
 # Zsh
-ln -sf $DOTFILES/zshrc/linux/.zshrc $HOME/. zshrc
+ln -sf $DOTFILES/zshrc/linux/.zshrc $HOME/.zshrc
 # ln -sf $DOTFILES/zshrc/wsl/.zshrc $HOME/.zshrc
 
 # Neovim

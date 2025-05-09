@@ -1,0 +1,1 @@
+/home/johanhanses/Repos/github.com/johanhanses/dotfiles2025/zshrc/linux/.zshrc

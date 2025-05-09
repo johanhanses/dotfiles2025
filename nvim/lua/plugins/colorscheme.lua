@@ -101,18 +101,18 @@ return {
       return "dark"
     end
     
-    local appearance = get_os_appearance()
+    -- local appearance = get_os_appearance()
     
     -- Set up and load theme based on appearance
     require("onedarkpro").setup({
       -- Your theme configuration options here
     })
     
-    if appearance == "dark" then
+    -- if appearance == "dark" then
       vim.cmd("colorscheme onedark")
-    else
-      vim.cmd("colorscheme onelight") -- Assuming onelight is available
-    end
+    -- else
+      -- vim.cmd("colorscheme onelight") -- Assuming onelight is available
+    -- end
     
     -- Optional: Set up autocommand to check for system changes (if supported)
     -- vim.api.nvim_create_autocmd("Signal", {

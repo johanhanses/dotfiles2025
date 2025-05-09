@@ -61,7 +61,7 @@ export FZF_TMUX_OPTS=""
 # Aliases
 alias repos="cd $REPOS"
 alias ghrepos="cd $GHREPOS"
-alias dot="cd $GHREPOS/dotfiles"
+alias dot="cd $GHREPOS/dotfiles2025"
 alias scripts="cd $DOTFILES/scripts"
 alias rwdot="cd $REPOS/github.com/rwxrob/dot"
 alias rob="cd $REPOS/github.com/rwxrob"
