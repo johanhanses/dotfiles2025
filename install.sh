@@ -40,3 +40,13 @@ ln -sf $DOTFILES/btop/ $HOME/.config/btop
 # newsboat
 rm -rf $HOME/.config/newsboat
 ln -sf $DOTFILES/newsboat/ $HOME/.config/newsboat
+
+# ghostty
+rm -rf $HOME/.config/ghostty
+ln -sf $DOTFILES/ghostty/ $HOME/.config/ghostty
+
+
+
+
+
+
