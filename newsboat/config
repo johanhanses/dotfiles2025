@@ -1,6 +1,10 @@
 # Maximum items to keep per feed
 max-items 500
 
+# browser
+# browser "/usr/lib/firefox/firefox %u"
+browser "xdg-open %u"
+
 # Basic display settings
 show-read-feeds yes
 feed-sort-order unreadarticlecount-asc
