@@ -125,8 +125,13 @@ alias szr="source ~/.zshrc"
 
 # alias dark="gsettings set org.cinnamon.theme name 'Mint-Y-Dark'"
 # alias light="gsettings set org.cinnamon.theme name 'Mint-Y'"
+
 # alias dark="kitten themes --reload-in=all One Half Dark && gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark' && export BAT_THEME='OneHalfDark'"
 # alias light="kitten themes --reload-in=all One Half Light && gsettings set org.gnome.desktop.interface color-scheme 'prefer-light' && export BAT_THEME='OneHalfLight'"
+
+alias dark="gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark' && export BAT_THEME='OneHalfDark'"
+alias light="gsettings set org.gnome.desktop.interface color-scheme 'prefer-light' && export BAT_THEME='OneHalfLight'"
+
 
 # Initialize Starship prompt
 eval "$(starship init zsh)"

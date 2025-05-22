@@ -91,7 +91,7 @@ return {
         end
       elseif vim.fn.has("unix") == 1 then
         -- For Linux/Unix with gsettings (GNOME)
-        local handle = io.popen("gsettings get org.cinnamon.desktop.interface color-scheme 2>/dev/null")
+        local handle = io.popen("gsettings get org.gnome.desktop.interface color-scheme 2>/dev/null")
         if handle then
           local result = handle:read("*a")
           handle:close()
@@ -103,30 +103,30 @@ return {
       return "dark"
     end
 
-    -- local appearance = get_os_appearance()
+    local appearance = get_os_appearance()
 
     -- Set up and load theme based on appearance
     require("onedarkpro").setup({
       -- Your theme configuration options here
     })
 
-    -- if appearance == "dark" then
-    vim.cmd("colorscheme onedark")
-    -- else
-    -- vim.cmd("colorscheme onelight") -- Assuming onelight is available
-    -- end
+    if appearance == "dark" then
+      vim.cmd("colorscheme onedark")
+    else
+      vim.cmd("colorscheme onelight") -- Assuming onelight is available
+    end
 
     -- Optional: Set up autocommand to check for system changes (if supported)
-    -- vim.api.nvim_create_autocmd("Signal", {
-    --   pattern = "SIGUSR1",
-    --   callback = function()
-    --     local new_appearance = get_os_appearance()
-    --     if new_appearance ~= appearance then
-    --       appearance = new_appearance
-    --       vim.cmd("colorscheme " .. (appearance == "dark" and "onedark" or "onelight"))
-    --     end
-    --   end,
-    -- })
+    vim.api.nvim_create_autocmd("Signal", {
+      pattern = "SIGUSR1",
+      callback = function()
+        local new_appearance = get_os_appearance()
+        if new_appearance ~= appearance then
+          appearance = new_appearance
+          vim.cmd("colorscheme " .. (appearance == "dark" and "onedark" or "onelight"))
+        end
+      end,
+    })
   end,
 }
 
