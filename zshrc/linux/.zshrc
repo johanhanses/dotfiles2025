@@ -8,8 +8,12 @@ setopt append_history
 setopt inc_append_history
 
 # ZSH plugins
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /home/johanhanses/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+# source /home/johanhanses/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Enable word movement with Ctrl+Left/Right
 bindkey '^[[1;5D' backward-word
