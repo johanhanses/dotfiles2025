@@ -85,6 +85,7 @@ alias config="cd $XDG_CONFIG_HOME"
 alias cat="bat"
 alias fast="fast -u --single-line"
 alias speed="curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python3 -"
+
 alias htop="btm -b"
 alias neofetch="fastfetch"
 alias photos="npx --yes icloudpd --directory ~/icloud-photos --username johanhanses@gmail.com --watch-with-interval 3600"
