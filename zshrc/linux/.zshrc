@@ -8,7 +8,7 @@ setopt append_history
 setopt inc_append_history
 
 # ZSH plugins
-
+# First install with apt
 source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
@@ -42,7 +42,8 @@ export LKAB_DIR="$WORK_DIR/.lkab"
 export ONPREM_CONFIG_DIR="$LKAB_DIR/on-prem/config"
 export ONPREM_CERT_DIR="$LKAB_DIR/on-prem/cert"
 export PATH="$XDG_CONFIG_HOME/scripts:$PATH:/home/johanhanses/.local/bin"
-
+export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=6'
 # fzf configuration
 # Set up fzf key bindings and fuzzy completion
 # source <(fzf --zsh)
@@ -78,8 +79,8 @@ alias dti="cd $REPOS/github.com/Digital-Tvilling/dti"
 alias home="cd $REPOS/github.com/johanhanses/johanhanses.com/"
 alias sb="cd $SECOND_BRAIN"
 alias config="cd $XDG_CONFIG_HOME"
-alias sysfig="cd $HOME/ansible-system-setup"
-alias windows="cd /mnt/c/Users/johanhanses"
+# alias sysfig="cd $HOME/ansible-system-setup"
+# alias windows="cd /mnt/c/Users/johanhanses"
 
 alias cat="bat"
 alias fast="fast -u --single-line"
