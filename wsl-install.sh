@@ -6,16 +6,15 @@ DOTFILES="$(pwd)"
 DOTFILES_PRIVATE="$HOME/Repos/github.com/johanhanses/dotfiles-private"
 
 # Zsh
-ln -sf $DOTFILES/zshrc/linux/.zshrc $HOME/.zshrc
-# ln -sf $DOTFILES/zshrc/wsl/.zshrc $HOME/.zshrc
+ln -sf $DOTFILES/zshrc/wsl/.zshrc $HOME/.zshrc
 
 # Neovim
 rm -rf $HOME/.config/nvim
 ln -s $DOTFILES/nvim/ $HOME/.config/nvim
 
 # Kitty
-rm -rf $HOME/.config/kitty
-ln -sf $DOTFILES/kitty/ $HOME/.config/kitty
+# rm -rf $HOME/.config/kitty
+# ln -sf $DOTFILES/kitty/ $HOME/.config/kitty
 
 # Tmux
 rm -rf $HOME/.config/tmux
@@ -42,11 +41,5 @@ rm -rf $HOME/.config/newsboat
 ln -sf $DOTFILES/newsboat/ $HOME/.config/newsboat
 
 # ghostty
-rm -rf $HOME/.config/ghostty
-ln -sf $DOTFILES/ghostty/ $HOME/.config/ghostty
-
-
-
-
-
-
+# rm -rf $HOME/.config/ghostty
+# ln -sf $DOTFILES/ghostty/ $HOME/.config/ghostty

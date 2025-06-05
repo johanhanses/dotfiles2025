@@ -12,9 +12,6 @@ setopt inc_append_history
 source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-# source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-# source /home/johanhanses/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
 # Enable word movement with Ctrl+Left/Right
 bindkey '^[[1;5D' backward-word
 bindkey '^[[1;5C' forward-word
@@ -34,7 +31,7 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export REPOS="$HOME/Repos"
 export GITUSER="johanhanses"
 export GHREPOS="$HOME/Repos/github.com/johanhanses"
-export DOTFILES="$GHREPOS/dotfiles"
+export DOTFILES="$GHREPOS/dotfiles2025"
 export SCRIPTS="$DOTFILES/scripts"
 export SECOND_BRAIN="$GHREPOS/zettelkasten"
 export WORK_DIR="$REPOS/github.com/Digital-Tvilling"
@@ -44,9 +41,6 @@ export ONPREM_CERT_DIR="$LKAB_DIR/on-prem/cert"
 export PATH="$XDG_CONFIG_HOME/scripts:$PATH:/home/johanhanses/.local/bin"
 export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=6'
-# fzf configuration
-# Set up fzf key bindings and fuzzy completion
-# source <(fzf --zsh)
 
 # fzf default options
 export FZF_DEFAULT_COMMAND="rg --files"
@@ -79,8 +73,6 @@ alias dti="cd $REPOS/github.com/Digital-Tvilling/dti"
 alias home="cd $REPOS/github.com/johanhanses/johanhanses.com/"
 alias sb="cd $SECOND_BRAIN"
 alias config="cd $XDG_CONFIG_HOME"
-# alias sysfig="cd $HOME/ansible-system-setup"
-# alias windows="cd /mnt/c/Users/johanhanses"
 
 alias cat="bat"
 alias fast="fast -u --single-line"
@@ -122,7 +114,6 @@ alias tk="tmux kill-server"
 alias tl="tmux ls"
 alias ta="tmux a"
 
-alias z="zellij"
 
 alias d="docker"
 alias dc="docker compose"

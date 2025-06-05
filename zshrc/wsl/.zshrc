@@ -1,40 +1,70 @@
 # ~~~~~~~~~~~~~~~ History ~~~~~~~~~~~~~~~~~~~~~~~~
-
 export HISTFILE=~/.histfile
 export HISTSIZE=25000
 export SAVEHIST=25000
 export HISTCONTROL=ignorespace
 
-# ~~~~~~~~~~~~~~~ Environment Variables ~~~~~~~~~~~~~~~~~~~~~~~~
+setopt share_history
+setopt append_history
+setopt inc_append_history
 
-export PATH=$PATH:/home/johanhanses/.local/bin
-export PATH=$HOME/bin:/usr/local/bin:$PATH
-export XDG_CONFIG_HOME="$HOME"/.config
+# ZSH plugins
+source ~/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+
+# Enable word movement with Ctrl+Left/Right
+bindkey '^[[1;5D' backward-word
+bindkey '^[[1;5C' forward-word
+
+# Enable beginning/end of line with Fn+Left/Right or Home/End
+bindkey '^[[H' beginning-of-line
+bindkey '^[[F' end-of-line
+
+unset zle_bracketed_paste
+
+# Environment Variables
+export EDITOR="nvim"
+export VISUAL="nvim"
+export XDG_CONFIG_HOME="$HOME/.config"
 export REPOS="$HOME/Repos"
 export GITUSER="johanhanses"
-export GHREPOS="$REPOS/github.com/$GITUSER"
-export DOTFILES="$GHREPOS/dotfiles"
+export GHREPOS="$HOME/Repos/github.com/johanhanses"
+export DOTFILES="$GHREPOS/dotfiles2025"
 export SCRIPTS="$DOTFILES/scripts"
-export SECOND_BRAIN=$GHREPOS/zettelkasten
+export SECOND_BRAIN="$GHREPOS/zettelkasten"
+export WORK_DIR="$REPOS/github.com/Digital-Tvilling"
+export LKAB_DIR="$WORK_DIR/.lkab"
+export ONPREM_CONFIG_DIR="$LKAB_DIR/on-prem/config"
+export ONPREM_CERT_DIR="$LKAB_DIR/on-prem/cert"
+export KUBECONFIG=${HOME}/.kube/config
+export PATH="$XDG_CONFIG_HOME/scripts:$PATH:/home/johanhanses/.local/bin"
+export BAT_THEME="OneHalfDark"
 
 export VISUAL=nvim
 export EDITOR="$VISUAL"
 
-export CLICOLOR=1
-# export TERM=xterm-256color
-# export COLORTERM=truecolor
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
+# fzf default options
+export FZF_DEFAULT_COMMAND="rg --files"
+export FZF_DEFAULT_OPTS="--height 90% --border"
 
-export WORK_DIR="$REPOS/github.com/Digital-Tvilling"
-export LKAB_DIR=${WORK_DIR}/.lkab
-export ONPREM_CONFIG_DIR=${LKAB_DIR:?}/on-prem/config
-export ONPREM_CERT_DIR=${LKAB_DIR:?}/on-prem/cert
-export PATH="$XDG_CONFIG_HOME/scripts:$PATH"
+# fzf CTRL-T configuration
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_CTRL_T_OPTS="--preview 'bat -n --color=always {}' --bind 'ctrl-/:change-preview-window(down|hidden|)'"
+
+# fzf ALT-C configuration
+export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
+
+# fzf tmux configuration
+export FZF_TMUX=1
+export FZF_TMUX_OPTS=""
+
+# Aliases
+alias windows="cd /mnt/c/Users/johanhanses"
 
 alias repos="cd $REPOS"
 alias ghrepos="cd $GHREPOS"
-alias dot="cd $GHREPOS/dotfiles"
+alias dot="cd $GHREPOS/dotfiles2025"
 alias scripts="cd $DOTFILES/scripts"
 alias rwdot="cd $REPOS/github.com/rwxrob/dot"
 alias rob="cd $REPOS/github.com/rwxrob"
@@ -44,75 +74,56 @@ alias rtm="cd $REPOS/github.com/Digital-Tvilling/dt-frontend-vite"
 alias deploy="cd $REPOS/github.com/Digital-Tvilling/deployment-configuration"
 alias backend="cd $REPOS/github.com/Digital-Tvilling/deployment-configuration/external/localhost"
 alias dti="cd $REPOS/github.com/Digital-Tvilling/dti"
-# alias icloud="cd ~/Library/Mobile\ Documents/com~apple~CloudDocs"
+alias home="cd $REPOS/github.com/johanhanses/johanhanses.com/"
 alias sb="cd $SECOND_BRAIN"
-alias in="cd $SECOND_BRAIN/0\ Inbox"
 alias config="cd $XDG_CONFIG_HOME"
-alias windows="cd /mnt/c/Users/johanhanses"
 
-alias szr="source ~/.zshrc"
-# alias cat="bat"
+alias cat="bat"
 alias fast="fast -u --single-line"
-alias nv=nvim
-alias ..="cd .."
+alias speed="curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python3 -"
+
+alias htop="btm -b"
+alias neofetch="fastfetch"
+alias photos="npx --yes icloudpd --directory ~/icloud-photos --username johanhanses@gmail.com --watch-with-interval 3600"
+alias nv="nvim"
 alias c="clear"
-alias '?'=duck
-alias '??'=gpt
-alias '???'=google
 
 alias n="npm"
 alias nr="npm run"
 alias ns="npm start"
 
-alias ls='ls --color=auto'
-alias ll='ls -la'
-alias l='ls -l'
-alias la='ls -lathr'
-alias e='exit'
+alias ls="ls --color=auto"
+alias ll="eza -l -a -a -g --group-directories-first --show-symlinks --icons=always"
+alias l="eza -l -g --group-directories-first --show-symlinks --icons=always"
+alias la="ls -lathr"
+alias lg="lazygit"
+
+alias tree="eza --tree"
+alias e="exit"
 
 alias gm="git checkout main && git pull"
-alias gp='git push'
+alias gd="git diff"
+alias gp="git push"
 alias ga="git add ."
-alias gs='git status'
+alias gs="git status"
 alias gc="git checkout"
 alias gcb="git checkout -b"
-alias gcm="git cz"
-alias wip="git commit -m 'wip' --no-verify"
+alias gcm="git commit -m"
+alias wip="git commit -m \"wip\" --no-verify"
 
-alias lg='lazygit'
+alias k="kubectl"
 
-alias k='kubectl'
+alias t="tmux"
+alias tk="tmux kill-server"
+alias tl="tmux ls"
+alias ta="tmux a"
 
-alias t='tmux'
-alias tk='tmux kill-server'
-alias tl='tmux ls'
-alias ta='tmux a'
 
-# Docker
 alias d="docker"
 alias dc="docker compose"
 
-# Find and set branch name var if in git repository.
-# function git_branch_name()
-# {
-#   branch=$(git symbolic-ref HEAD 2> /dev/null | awk 'BEGIN{FS="/"} {print $NF}')
-#   if [[ $branch == "" ]];
-#   then
-#     :
-#   else
-#     echo ''%F{yellow}$branch%f''
-#   fi
-# }
-
-# Enable substitution in the prompt.
-# setopt prompt_subst
-
-# Set the prompt
-# export PROMPT='%B%F{cyan}%0~%f $(git_branch_name)$ '
-
+alias szr="source ~/.zshrc"
+# Initialize Starship prompt
 eval "$(starship init zsh)"
-
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /home/johanhanses/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
