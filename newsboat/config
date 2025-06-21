@@ -3,7 +3,12 @@ max-items 500
 
 # browser
 # browser "/usr/lib/firefox/firefox %u"
-browser "xdg-open %u"
+
+# Linux/Ubuntu
+# browser "xdg-open %u"
+
+# macOS
+browser "open -g -a 'Firefox Nightly' %u"
 
 # Basic display settings
 show-read-feeds yes
