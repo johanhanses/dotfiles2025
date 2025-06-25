@@ -8,9 +8,13 @@ setopt append_history
 setopt inc_append_history
 
 # ZSH plugins
-# # First install with brew
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+# # First install with brew (intel)
+# source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# # First install with brew (apple sil)
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Enable word movement with Ctrl+Left/Right
 # bindkey '^[[1;5D' backward-word
