@@ -27,7 +27,7 @@ font-style-bold = Bold
 font-style-italic = SemiBold Italic
 font-style-bold-italic = Bold Italic
 
-window-padding-x = 2
+window-padding-x = 12
 
 theme = dark:OneHalfDark, light:OneHalfLight
 
