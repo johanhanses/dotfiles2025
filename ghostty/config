@@ -30,7 +30,7 @@ font-style-bold-italic = Bold Italic
 
 window-padding-x = 12
 
-theme = dark:OneHalfDark, light:OneHalfLight
+theme = dark:Ayu Mirage, light:ayu_light
 
 #
 # # Spacing around the equals sign does not matter.
