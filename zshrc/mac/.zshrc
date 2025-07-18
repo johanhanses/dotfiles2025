@@ -46,6 +46,8 @@ export PATH="$XDG_CONFIG_HOME/scripts:$PATH:/home/johanhanses/.local/bin"
 export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=6'
 export PATH="/opt/homebrew/opt/node@22/bin:$PATH"
+export LDFLAGS="-L/opt/homebrew/opt/node@22/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/node@22/include"
 
 # fzf default options
 export FZF_DEFAULT_COMMAND="rg --files"
