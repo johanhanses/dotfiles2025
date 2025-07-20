@@ -103,6 +103,7 @@
 
 return {
   "maxmx03/solarized.nvim",
+  -- "craftzdog/solarized-osaka.nvim",
   lazy = false,
   priority = 1000,
   config = function()
@@ -196,6 +197,7 @@ return {
       pattern = "SIGUSR1",
       callback = function()
         local new_appearance = get_os_appearance()
+
         if new_appearance ~= appearance then
           appearance = new_appearance
           vim.o.background = appearance

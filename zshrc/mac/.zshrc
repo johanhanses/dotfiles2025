@@ -90,6 +90,7 @@ alias neofetch="fastfetch"
 alias photos="npx --yes icloudpd --directory ~/icloud-photos --username johanhanses@gmail.com --watch-with-interval 3600"
 alias nv="nvim"
 alias c="clear"
+alias cl="claude"
 
 alias n="npm"
 alias nr="npm run"
