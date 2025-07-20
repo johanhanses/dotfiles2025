@@ -1,5 +1,3 @@
-### My dotfiles for apt (debian, ubuntu, mint) based systems
+### My dotfiles for apt (debian, ubuntu, mint, wsl) based systems and MacOS
 
 WIP.
-
-Needs cleanup in .zshrc.
