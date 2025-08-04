@@ -41,7 +41,7 @@ export KUBECONFIG=${HOME}/.kube/config
 export PATH="$XDG_CONFIG_HOME/scripts:$PATH:/home/johanhanses/.local/bin"
 export PATH=$PATH:/usr/local/go/bin
 export BAT_THEME="OneHalfDark"
-
+export PATH="$PATH:/Users/johanhanses/Repos/github.com/johanhanses/dotfiles2025/scripts"
 export VISUAL=nvim
 export EDITOR="$VISUAL"
 
