@@ -21,7 +21,8 @@
 # # separated by equals signs.
 
 # font-family = SauceCodePro Nerd Font
-font-family = JetBrains Mono 
+# font-family = JetBrains Mono 
+font-family = BlexMono Nerd Font
 font-size = 15
 font-style = SemiBold
 font-style-bold = Bold
