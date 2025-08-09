@@ -9,9 +9,12 @@ setopt append_history
 setopt inc_append_history
 
 # ZSH plugins
-source ~/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+# source ~/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
+# Add to ~/.zshrc on Fedora 42
+source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Enable word movement with Ctrl+Left/Right
 bindkey '^[[1;5D' backward-word
@@ -24,6 +27,7 @@ bindkey '^[[F' end-of-line
 unset zle_bracketed_paste
 
 # Environment Variables
+export BAT_THEME="OneHalfDark"
 export EDITOR="nvim"
 export VISUAL="nvim"
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -32,7 +36,7 @@ export GITUSER="johanhanses"
 export GHREPOS="$HOME/Repos/github.com/johanhanses"
 export DOTFILES="$GHREPOS/dotfiles2025"
 export SCRIPTS="$DOTFILES/scripts"
-export SECOND_BRAIN="$GHREPOS/zettelkasten"
+# export SECOND_BRAIN="$GHREPOS/zettelkasten"
 export WORK_DIR="$REPOS/github.com/Digital-Tvilling"
 export LKAB_DIR="$WORK_DIR/.lkab"
 export ONPREM_CONFIG_DIR="$LKAB_DIR/on-prem/config"
@@ -40,10 +44,7 @@ export ONPREM_CERT_DIR="$LKAB_DIR/on-prem/cert"
 export KUBECONFIG=${HOME}/.kube/config
 export PATH="$XDG_CONFIG_HOME/scripts:$PATH:/home/johanhanses/.local/bin"
 export PATH=$PATH:/usr/local/go/bin
-export BAT_THEME="OneHalfDark"
 export PATH="$PATH:/Users/johanhanses/Repos/github.com/johanhanses/dotfiles2025/scripts"
-export VISUAL=nvim
-export EDITOR="$VISUAL"
 
 # fzf default options
 export FZF_DEFAULT_COMMAND="rg --files"
@@ -88,18 +89,19 @@ alias neofetch="fastfetch"
 alias photos="npx --yes icloudpd --directory ~/icloud-photos --username johanhanses@gmail.com --watch-with-interval 3600"
 alias nv="nvim"
 alias c="clear"
+alias cl="claude"
 
 alias n="npm"
 alias nr="npm run"
 alias ns="npm start"
 
 alias ls="ls --color=auto"
-alias ll="eza -l -a -a -g --group-directories-first --show-symlinks --icons=always"
-alias l="eza -l -g --group-directories-first --show-symlinks --icons=always"
+# alias ll="eza -l -a -a -g --group-directories-first --show-symlinks --icons=always"
+# alias l="eza -l -g --group-directories-first --show-symlinks --icons=always"
 alias la="ls -lathr"
 alias lg="lazygit"
 
-alias tree="eza --tree"
+# alias tree="eza --tree"
 alias e="exit"
 
 alias gm="git checkout main && git pull"
