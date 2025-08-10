@@ -2,9 +2,49 @@ return {
   "olimorris/onedarkpro.nvim",
   priority = 1000, -- Ensure it loads first
   config = function()
-    -- Check OS theme preference
+    -- Check OS theme preference with WSL support
     local function get_os_appearance()
-      if vim.fn.has("macunix") == 1 then
+      -- Check if we're running in WSL
+      local function is_wsl()
+        local handle = io.popen("uname -r 2>/dev/null")
+        if handle then
+          local result = handle:read("*a")
+          handle:close()
+          return result:lower():match("microsoft") or result:lower():match("wsl")
+        end
+        return false
+      end
+
+      if is_wsl() then
+        -- For WSL - Check Windows host theme via PowerShell
+        local handle = io.popen(
+          "powershell.exe -NoProfile -Command \"try { (Get-ItemProperty -Path 'HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize' -Name AppsUseLightTheme -ErrorAction Stop).AppsUseLightTheme } catch { Write-Output '0' }\" 2>/dev/null"
+        )
+        if handle then
+          local result = handle:read("*a")
+          handle:close()
+          -- PowerShell returns "0" for dark theme, "1" for light theme
+          local theme_value = result:match("(%d+)")
+          if theme_value then
+            return theme_value == "0" and "dark" or "light"
+          end
+        end
+
+        -- Fallback: Try cmd.exe approach
+        local cmd_handle = io.popen(
+          'cmd.exe /c "reg query HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize /v AppsUseLightTheme 2>nul | findstr AppsUseLightTheme" 2>/dev/null'
+        )
+        if cmd_handle then
+          local cmd_result = cmd_handle:read("*a")
+          cmd_handle:close()
+          -- Look for the registry value (0x0 = dark, 0x1 = light)
+          if cmd_result:match("0x0") then
+            return "dark"
+          elseif cmd_result:match("0x1") then
+            return "light"
+          end
+        end
+      elseif vim.fn.has("macunix") == 1 then
         -- For macOS
         local handle = io.popen("defaults read -g AppleInterfaceStyle 2>/dev/null")
         if handle then
@@ -13,7 +53,7 @@ return {
           return result:match("Dark") and "dark" or "light"
         end
       elseif vim.fn.has("win32") == 1 then
-        -- For Windows
+        -- For native Windows
         local handle = io.popen(
           "powershell.exe -command \"(Get-ItemProperty -Path 'HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize' -Name AppsUseLightTheme).AppsUseLightTheme\""
         )
@@ -24,7 +64,6 @@ return {
         end
       elseif vim.fn.has("unix") == 1 then
         -- For Linux/Unix - Try Cinnamon first, then fallback to GNOME
-
         -- Check if we're running Cinnamon
         local cinnamon_check = io.popen("pgrep -x cinnamon 2>/dev/null")
         local is_cinnamon = false
@@ -41,10 +80,8 @@ return {
             local result = handle:read("*a")
             handle:close()
             -- Check if theme name contains "dark" (case insensitive)
-            -- Common dark themes: Mint-Y-Dark, Adwaita-dark, etc.
             return result:lower():match("dark") and "dark" or "light"
           end
-
           -- Alternative: Check Cinnamon theme preference if available
           local handle2 = io.popen("gsettings get org.cinnamon.theme name 2>/dev/null")
           if handle2 then
@@ -60,7 +97,6 @@ return {
             handle:close()
             return result:match("dark") and "dark" or "light"
           end
-
           -- Additional fallback: check GTK theme
           local handle2 = io.popen("gsettings get org.gnome.desktop.interface gtk-theme 2>/dev/null")
           if handle2 then
@@ -70,7 +106,8 @@ return {
           end
         end
       end
-      -- Default to dark if detection fails
+
+      -- Default to dark if all detection methods fail
       return "dark"
     end
 
@@ -78,18 +115,40 @@ return {
 
     -- Set up and load theme based on appearance
     require("onedarkpro").setup({
-      -- Your theme configuration options here
+      -- Minimal configuration to avoid compatibility issues
+      colors = {}, -- Override the theme's colors
+      highlights = {}, -- Override the theme's highlight groups
+      styles = {
+        comments = "italic", -- Style that is applied to comments
+        keywords = "bold", -- Style that is applied to keywords
+        functions = "italic", -- Style that is applied to functions
+        conditionals = "italic", -- Style that is applied to conditionals
+      },
+      options = {
+        cursorline = false, -- Use cursorline highlighting?
+        transparency = false, -- Use a transparent background?
+        terminal_colors = true, -- Use the theme's colors for Neovim's :terminal?
+      },
     })
 
     if appearance == "dark" then
       vim.cmd("colorscheme onedark")
     else
-      vim.cmd("colorscheme onelight") -- Assuming onelight is available
+      vim.cmd("colorscheme onelight")
     end
 
-    -- Optional: Set up autocommand to check for system changes (if supported)
-    vim.api.nvim_create_autocmd("Signal", {
-      pattern = "SIGUSR1",
+    -- Create a command to manually refresh the theme
+    vim.api.nvim_create_user_command("RefreshTheme", function()
+      local new_appearance = get_os_appearance()
+      vim.cmd("colorscheme " .. (new_appearance == "dark" and "onedark" or "onelight"))
+      print("Theme refreshed: " .. new_appearance)
+    end, { desc = "Refresh colorscheme based on OS theme" })
+
+    -- Optional: Set up autocommand to check for system changes
+    -- Note: This is more reliable than the SIGUSR1 approach
+    local theme_group = vim.api.nvim_create_augroup("ThemeSync", { clear = true })
+    vim.api.nvim_create_autocmd("FocusGained", {
+      group = theme_group,
       callback = function()
         local new_appearance = get_os_appearance()
         if new_appearance ~= appearance then

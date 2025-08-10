@@ -3,7 +3,7 @@
 -- Add any additional options here
 
 vim.opt.relativenumber = false
-vim.opt.clipboard = "unnamedplus"
+-- vim.opt.clipboard = "unnamedplus"
 
 -- vim.g.clipboard = {
 --   name = "wl-clipboard",
