@@ -19,6 +19,8 @@ ln -s $DOTFILES/nvim/ $HOME/.config/nvim
 # Tmux
 rm -rf $HOME/.config/tmux
 ln -sf $DOTFILES/tmux/ $HOME/.config/tmux
+# Override with WSL-specific tmux config
+ln -sf $DOTFILES/tmux/wsl/tmux.conf $HOME/.config/tmux/tmux.conf
 
 # Git
 ln -sf $DOTFILES/.gitconfig $HOME/.gitconfig

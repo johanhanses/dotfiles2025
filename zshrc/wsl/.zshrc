@@ -8,11 +8,7 @@ setopt share_history
 setopt append_history
 setopt inc_append_history
 
-# ZSH plugins
-# source ~/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-# source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-
-# Add to ~/.zshrc on Fedora 42
+# ZSH plugins for Fedora 42
 source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
@@ -42,11 +38,14 @@ export LKAB_DIR="$WORK_DIR/.lkab"
 export ONPREM_CONFIG_DIR="$LKAB_DIR/on-prem/config"
 export ONPREM_CERT_DIR="$LKAB_DIR/on-prem/cert"
 export KUBECONFIG=${HOME}/.kube/config
+
+# PATH configuration (fixed for Linux paths)
 export PATH="$XDG_CONFIG_HOME/scripts:$PATH:/home/johanhanses/.local/bin"
 export PATH=$PATH:/usr/local/go/bin
-export PATH="$PATH:/Users/johanhanses/Repos/github.com/johanhanses/dotfiles2025/scripts"
+export PATH="$PATH:$SCRIPTS"
+export PATH=~/.npm-global/bin:$PATH
 
-# fzf default options
+# fzf configuration
 export FZF_DEFAULT_COMMAND="rg --files"
 export FZF_DEFAULT_OPTS="--height 90% --border"
 
@@ -60,6 +59,27 @@ export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
 # fzf tmux configuration
 export FZF_TMUX=1
 export FZF_TMUX_OPTS=""
+
+# fzf integration for Fedora
+if [ -f /usr/share/fzf/shell/key-bindings.zsh ]; then
+    source /usr/share/fzf/shell/key-bindings.zsh
+fi
+
+if [ -f /usr/share/fzf/shell/completion.zsh ]; then
+    source /usr/share/fzf/shell/completion.zsh
+fi
+
+# WSL-specific configurations
+if grep -q Microsoft /proc/version; then
+    # WSL-specific aliases and configurations
+    export DISPLAY=$(grep -m 1 nameserver /etc/resolv.conf | awk '{print $2}'):0.0
+
+    # Fix for systemd services in WSL
+    export SYSTEMD_PAGER=""
+
+    # Windows interop (if needed)
+    export WINHOME="/mnt/c/Users/johanhanses"
+fi
 
 # Aliases
 alias windows="cd /mnt/c/Users/johanhanses"
@@ -77,7 +97,7 @@ alias deploy="cd $REPOS/github.com/Digital-Tvilling/deployment-configuration"
 alias backend="cd $REPOS/github.com/Digital-Tvilling/deployment-configuration/external/localhost"
 alias dti="cd $REPOS/github.com/Digital-Tvilling/dti"
 alias home="cd $REPOS/github.com/johanhanses/johanhanses.com/"
-alias sb="cd $SECOND_BRAIN"
+# alias sb="cd $SECOND_BRAIN"
 alias config="cd $XDG_CONFIG_HOME"
 
 alias cat="bat"
@@ -96,12 +116,12 @@ alias nr="npm run"
 alias ns="npm start"
 
 alias ls="ls --color=auto"
-# alias ll="eza -l -a -a -g --group-directories-first --show-symlinks --icons=always"
-# alias l="eza -l -g --group-directories-first --show-symlinks --icons=always"
+# Use standard ls commands instead of eza for better compatibility
+alias l="ls -l --group-directories-first --color=auto"
+alias ll="ls -l --group-directories-first -a --color=auto"
 alias la="ls -lathr"
 alias lg="lazygit"
 
-# alias tree="eza --tree"
 alias e="exit"
 
 alias gm="git checkout main && git pull"
@@ -121,12 +141,10 @@ alias tk="tmux kill-server"
 alias tl="tmux ls"
 alias ta="tmux a"
 
-
 alias d="docker"
 alias dc="docker compose"
 
 alias szr="source ~/.zshrc"
+
 # Initialize Starship prompt
 eval "$(starship init zsh)"
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

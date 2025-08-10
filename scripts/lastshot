@@ -1,0 +1,13 @@
+#!/bin/bash
+# ~/.local/bin/lastshot
+LATEST=$(ls -1t /mnt/c/Users/johan/Pictures/Screenshots/*.png | head -n1)
+
+if [[ "$PWD" == /home/johanhanses/* ]]; then
+    mkdir -p ./tmp
+
+    ln -sf "$LATEST" ./tmp/latest_screenshot.png
+
+    echo "./tmp/latest_screenshot.png"
+else
+    echo "$LATEST"
+fi
