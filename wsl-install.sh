@@ -45,3 +45,12 @@ ln -sf $DOTFILES/newsboat/ $HOME/.config/newsboat
 # ghostty
 # rm -rf $HOME/.config/ghostty
 # ln -sf $DOTFILES/ghostty/ $HOME/.config/ghostty
+
+# Download and install eza for ARM64
+wget https://github.com/eza-community/eza/releases/latest/download/eza_aarch64-unknown-linux-gnu.tar.gz
+tar -xzf eza_aarch64-unknown-linux-gnu.tar.gz
+sudo mv eza /usr/local/bin/
+sudo chmod +x /usr/local/bin/eza
+
+# Clean up the downloaded archive
+rm eza_aarch64-unknown-linux-gnu.tar.gz

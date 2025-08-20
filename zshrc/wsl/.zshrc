@@ -115,13 +115,16 @@ alias n="npm"
 alias nr="npm run"
 alias ns="npm start"
 
-alias ls="ls --color=auto"
 # Use standard ls commands instead of eza for better compatibility
-alias l="ls -l --group-directories-first --color=auto"
-alias ll="ls -l --group-directories-first -a --color=auto"
+# alias l="ls -l --group-directories-first --color=auto"
+# alias ll="ls -l --group-directories-first -a --color=auto"
+alias ls="ls --color=auto"
+alias ll="eza -l -a -a -g --group-directories-first --show-symlinks --icons=always"
+alias l="eza -l -g --group-directories-first --show-symlinks --icons=always"
 alias la="ls -lathr"
 alias lg="lazygit"
 
+alias tree="eza --tree"
 alias e="exit"
 
 alias gm="git checkout main && git pull"
