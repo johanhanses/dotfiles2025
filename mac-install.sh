@@ -15,8 +15,8 @@ rm -rf $HOME/.config/nvim
 ln -s $DOTFILES/nvim/ $HOME/.config/nvim
 
 # Kitty
-rm -rf $HOME/.config/kitty
-ln -sf $DOTFILES/kitty/ $HOME/.config/kitty
+# rm -rf $HOME/.config/kitty
+# ln -sf $DOTFILES/kitty/ $HOME/.config/kitty
 
 # Tmux
 rm -rf $HOME/.config/tmux
