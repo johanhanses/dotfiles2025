@@ -16,7 +16,8 @@ max-items 500
 # browser "google-chrome %u"
 
 # macOS
-browser "open -g -a 'Google Chrome' %u"
+# browser "open -g -a 'Google Chrome' %u"
+browser "open -g -a 'Brave Browser' %u"
 
 # Alternative macOS syntax:
 # browser "open -a 'Google Chrome' %u"
