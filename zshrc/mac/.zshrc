@@ -36,7 +36,7 @@ export VISUAL="nvim"
 # Alternative options for macOS:
 # export BROWSER="open -a 'Google Chrome'"
 # export BROWSER="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
-export BROWSER="open -a 'Brave Browser'"
+export BROWSER="open -a 'Safari Technology Preview'"
 
 export XDG_CONFIG_HOME="$HOME/.config"
 export REPOS="$HOME/Repos"
