@@ -1,5 +1,5 @@
 return {
-  "olimorris/onedarkpro.nvim",
+  "ellisonleao/gruvbox.nvim",
   priority = 1000, -- Ensure it loads first
   config = function()
     -- Check OS theme preference with WSL support
@@ -113,34 +113,45 @@ return {
 
     local appearance = get_os_appearance()
 
-    -- Set up and load theme based on appearance
-    require("onedarkpro").setup({
-      -- Minimal configuration to avoid compatibility issues
-      colors = {}, -- Override the theme's colors
-      highlights = {}, -- Override the theme's highlight groups
-      styles = {
-        comments = "italic", -- Style that is applied to comments
-        keywords = "bold", -- Style that is applied to keywords
-        functions = "italic", -- Style that is applied to functions
-        conditionals = "italic", -- Style that is applied to conditionals
+    -- Set up gruvbox theme
+    require("gruvbox").setup({
+      terminal_colors = true, -- add neovim terminal colors
+      undercurl = true,
+      underline = true,
+      bold = true,
+      italic = {
+        strings = true,
+        emphasis = true,
+        comments = true,
+        operators = false,
+        folds = true,
       },
-      options = {
-        cursorline = false, -- Use cursorline highlighting?
-        transparency = false, -- Use a transparent background?
-        terminal_colors = true, -- Use the theme's colors for Neovim's :terminal?
-      },
+      strikethrough = true,
+      invert_selection = false,
+      invert_signs = false,
+      invert_tabline = false,
+      invert_intend_guides = false,
+      inverse = true, -- invert background for search, diffs, statuslines and errors
+      contrast = "hard", -- can be "hard", "soft" or empty string
+      palette_overrides = {},
+      overrides = {},
+      dim_inactive = false,
+      transparent_mode = false,
     })
 
     if appearance == "dark" then
-      vim.cmd("colorscheme onedark")
+      vim.o.background = "dark"
+      vim.cmd("colorscheme gruvbox")
     else
-      vim.cmd("colorscheme onelight")
+      vim.o.background = "light"
+      vim.cmd("colorscheme gruvbox")
     end
 
     -- Create a command to manually refresh the theme
     vim.api.nvim_create_user_command("RefreshTheme", function()
       local new_appearance = get_os_appearance()
-      vim.cmd("colorscheme " .. (new_appearance == "dark" and "onedark" or "onelight"))
+      vim.o.background = new_appearance
+      vim.cmd("colorscheme gruvbox")
       print("Theme refreshed: " .. new_appearance)
     end, { desc = "Refresh colorscheme based on OS theme" })
 
@@ -153,7 +164,8 @@ return {
         local new_appearance = get_os_appearance()
         if new_appearance ~= appearance then
           appearance = new_appearance
-          vim.cmd("colorscheme " .. (appearance == "dark" and "onedark" or "onelight"))
+          vim.o.background = appearance
+          vim.cmd("colorscheme gruvbox")
         end
       end,
     })
