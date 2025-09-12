@@ -35,7 +35,7 @@ window-padding-x = 12
 # theme = dark:catppuccin-mocha, light:catppuccin-latte
 # theme = dark:iTerm2 Solarized Dark, light:iTerm2 Solarized Light
 # theme = dark:Atom, light:AtomOneLight
-theme = dark:GruvboxDarkHard, light:GruvboxLightHard
+theme = dark:tokyonight, light:tokyonight-day
 # theme = dark:GitHub-Dark-Colorblind, light:GitHub-Light-Colorblind
 # theme = "Solarized Dark - Patched"
 
