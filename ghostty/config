@@ -21,7 +21,7 @@
 # # separated by equals signs.
 
 # font-family = SauceCodePro Nerd Font
-# font-family = JetBrains Mono 
+# font-family = JetBrains Mono
 # font-family = BlexMono Nerd Font
 font-family = Liga SFMono Nerd Font
 font-size = 14
@@ -35,13 +35,16 @@ window-padding-x = 12
 # theme = dark:catppuccin-mocha, light:catppuccin-latte
 # theme = dark:iTerm2 Solarized Dark, light:iTerm2 Solarized Light
 # theme = dark:Atom, light:AtomOneLight
-theme = dark:tokyonight, light:tokyonight-day
+theme = dark:OneHalfDark, light:OneHalfLight
+# theme = dark:tokyonight, light:tokyonight-day
 # theme = dark:GitHub-Dark-Colorblind, light:GitHub-Light-Colorblind
 # theme = "Solarized Dark - Patched"
 
 # background-opacity = 0.9
 background-blur-radius = 20
 # background = #031219
+
+cursor-style = block
 
 #
 # # Spacing around the equals sign does not matter.
