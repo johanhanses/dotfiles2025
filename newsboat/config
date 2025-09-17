@@ -8,7 +8,7 @@ max-items 500
 # browser "xdg-open %u"
 
 # macOS
-browser "open -g -a 'Firefox Nightly' %u"
+# browser "open -g -a 'Firefox Nightly' %u"
 
 # Browser configuration - Updated to use Google Chrome
 
@@ -17,7 +17,7 @@ browser "open -g -a 'Firefox Nightly' %u"
 
 # macOS
 # browser "open -g -a 'Google Chrome' %u"
-# browser "open -g -a 'Safari Technology Preview' %u"
+browser "open -g -a 'Safari' %u"
 
 # Alternative macOS syntax:
 # browser "open -a 'Google Chrome' %u"

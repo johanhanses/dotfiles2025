@@ -45,3 +45,7 @@ ln -sf $DOTFILES/newsboat/ $HOME/.config/newsboat
 # ghostty
 rm -rf $HOME/.config/ghostty
 ln -sf $DOTFILES/ghostty/ $HOME/.config/ghostty
+
+# yazi
+rm -rf $HOME/.config/yazi
+ln -sf $DOTFILES/yazi/ $HOME/.config/yazi

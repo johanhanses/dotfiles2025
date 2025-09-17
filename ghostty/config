@@ -21,14 +21,14 @@
 # # separated by equals signs.
 
 # font-family = SauceCodePro Nerd Font
-# font-family = JetBrains Mono
+font-family = JetBrainsMono Nerd Font
 # font-family = BlexMono Nerd Font
-font-family = Liga SFMono Nerd Font
-font-size = 14
-font-style = SemiBold
-font-style-bold = Bold
-font-style-italic = SemiBold Italic
-font-style-bold-italic = Bold Italic
+# font-family = Liga SFMono Nerd Font
+font-size = 13
+font-style = Bold
+font-style-bold = ExtraBold
+font-style-italic = Bold Italic
+font-style-bold-italic = ExtraBold Italic
 
 window-padding-x = 12
 
