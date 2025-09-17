@@ -52,6 +52,7 @@ export ONPREM_CERT_DIR="$LKAB_DIR/on-prem/cert"
 export PATH="$XDG_CONFIG_HOME/scripts:$PATH:/home/johanhanses/.local/bin"
 export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
 export PATH="$PATH:/Users/johanhanses/Repos/github.com/johanhanses/dotfiles2025/scripts"
+export PATH="$PATH:/Users/johanhanses/Repos/github.com/johanhanses/zettelkasten"
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=6'
 export PATH="/opt/homebrew/opt/node@22/bin:$PATH"
 export LDFLAGS="-L/opt/homebrew/opt/node@22/lib"
