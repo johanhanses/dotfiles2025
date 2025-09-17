@@ -1,7 +1,11 @@
 {
   "permissions": {
     "allow": [
-      "WebFetch(domain:github.com)"
+      "WebFetch(domain:github.com)",
+      "Bash(echo $TMUX)",
+      "Bash(tmux list-panes:*)",
+      "Bash(ps:*)",
+      "Bash(tmux display-message:*)"
     ],
     "deny": [],
     "ask": []
