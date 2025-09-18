@@ -5,7 +5,8 @@
       "Bash(echo $TMUX)",
       "Bash(tmux list-panes:*)",
       "Bash(ps:*)",
-      "Bash(tmux display-message:*)"
+      "Bash(tmux display-message:*)",
+      "WebSearch"
     ],
     "deny": [],
     "ask": []

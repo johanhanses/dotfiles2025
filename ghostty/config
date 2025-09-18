@@ -24,7 +24,7 @@
 font-family = JetBrainsMono Nerd Font
 # font-family = BlexMono Nerd Font
 # font-family = Liga SFMono Nerd Font
-font-size = 13
+font-size = 14
 font-style = Bold
 font-style-bold = ExtraBold
 font-style-italic = Bold Italic
@@ -45,7 +45,7 @@ background-blur-radius = 20
 # background = #031219
 
 cursor-style = block
-
+shell-integration-features = no-cursor
 #
 # # Spacing around the equals sign does not matter.
 # # All of these are identical:
