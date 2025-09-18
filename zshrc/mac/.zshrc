@@ -31,12 +31,14 @@ export BAT_THEME="OneHalfDark"
 export EDITOR="nvim"
 export VISUAL="nvim"
 # export BROWSER="firefox"
+
 # Updated to use Google Chrome instead of Firefox
 # export BROWSER="google-chrome"
+
 # Alternative options for macOS:
-# export BROWSER="open -a 'Google Chrome'"
-# export BROWSER="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
-export BROWSER="open -a 'Safari'"
+export BROWSER="open -a 'Google Chrome'"
+export BROWSER="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+# export BROWSER="open -a 'Safari'"
 
 export XDG_CONFIG_HOME="$HOME/.config"
 export REPOS="$HOME/Repos"
