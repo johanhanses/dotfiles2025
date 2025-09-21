@@ -7,6 +7,9 @@ setopt share_history
 setopt append_history
 setopt inc_append_history
 
+# Enable completions
+autoload -Uz compinit && compinit
+
 # ZSH plugins
 # # First install with brew (intel)
 # source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

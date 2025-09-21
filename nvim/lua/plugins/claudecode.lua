@@ -21,4 +21,18 @@ return {
     { "<leader>aa", "<cmd>ClaudeCodeDiffAccept<cr>", desc = "Accept diff" },
     { "<leader>ad", "<cmd>ClaudeCodeDiffDeny<cr>", desc = "Deny diff" },
   },
+  opts = {
+    -- Terminal Configuration
+    terminal = {
+      split_side = "right", -- "left" or "right"
+      split_width_percentage = 0.35,
+    },
+
+    -- Diff Integration
+    diff_opts = {
+      vertical_split = false,
+      open_in_current_tab = false,
+      keep_terminal_focus = false, -- If true, moves focus back to terminal after diff opens
+    },
+  },
 }
