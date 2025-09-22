@@ -3,14 +3,17 @@ return {
   opts = {
     filesystem = {
       filtered_items = {
-        visible = true,
+        visible = false,
         show_hidden_count = true,
         hide_dotfiles = false,
-        hide_gitignored = true,
+        hide_gitignored = false,
         hide_by_name = {
           ".git",
           ".DS_Store",
           -- 'thumbs.db',
+          "node_modules",
+          ".vscode",
+          "build",
         },
         never_show = {},
       },
