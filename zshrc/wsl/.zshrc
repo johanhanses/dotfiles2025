@@ -8,6 +8,9 @@ setopt share_history
 setopt append_history
 setopt inc_append_history
 
+# Enable completions
+autoload -Uz compinit && compinit
+
 # ZSH plugins for Fedora 42
 source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -32,7 +35,7 @@ export GITUSER="johanhanses"
 export GHREPOS="$HOME/Repos/github.com/johanhanses"
 export DOTFILES="$GHREPOS/dotfiles2025"
 export SCRIPTS="$DOTFILES/scripts"
-# export SECOND_BRAIN="$GHREPOS/zettelkasten"
+export SECOND_BRAIN="$GHREPOS/zettelkasten"
 export WORK_DIR="$REPOS/github.com/Digital-Tvilling"
 export LKAB_DIR="$WORK_DIR/.lkab"
 export ONPREM_CONFIG_DIR="$LKAB_DIR/on-prem/config"
@@ -44,6 +47,10 @@ export PATH="$XDG_CONFIG_HOME/scripts:$PATH:/home/johanhanses/.local/bin"
 export PATH=$PATH:/usr/local/go/bin
 export PATH="$PATH:$SCRIPTS"
 export PATH=~/.npm-global/bin:$PATH
+
+export PATH="$PATH:/home/johanhanses/Repos/github.com/johanhanses/dotfiles2025/scripts"
+export PATH="$PATH:/home/johanhanses/Repos/github.com/johanhanses/zettelkasten"
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=6'
 
 # fzf configuration
 export FZF_DEFAULT_COMMAND="rg --files"
@@ -97,7 +104,7 @@ alias deploy="cd $REPOS/github.com/Digital-Tvilling/deployment-configuration"
 alias backend="cd $REPOS/github.com/Digital-Tvilling/deployment-configuration/external/localhost"
 alias dti="cd $REPOS/github.com/Digital-Tvilling/dti"
 alias home="cd $REPOS/github.com/johanhanses/johanhanses.com/"
-# alias sb="cd $SECOND_BRAIN"
+alias sb="cd $SECOND_BRAIN"
 alias config="cd $XDG_CONFIG_HOME"
 
 alias cat="bat"

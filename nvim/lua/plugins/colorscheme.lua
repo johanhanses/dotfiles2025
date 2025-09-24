@@ -84,7 +84,7 @@ return {
     if appearance == "dark" then
       vim.cmd("colorscheme onedark")
     else
-      vim.cmd("colorscheme onelight") -- Assuming onelight is available
+      vim.cmd("colorscheme onedark") -- Assuming onelight is available
     end
 
     -- Optional: Set up autocommand to check for system changes (if supported)
