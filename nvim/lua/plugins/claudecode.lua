@@ -1,7 +1,6 @@
 return {
   "coder/claudecode.nvim",
   dependencies = { "folke/snacks.nvim" },
-  config = true,
   keys = {
     { "<leader>a", nil, desc = "AI/Claude Code" },
     { "<leader>ac", "<cmd>ClaudeCode<cr>", desc = "Toggle Claude" },
@@ -35,4 +34,35 @@ return {
       keep_terminal_focus = false, -- If true, moves focus back to terminal after diff opens
     },
   },
+  config = function(_, opts)
+    require("claudecode").setup(opts)
+
+    -- Make Claude Code terminal background transparent
+    vim.api.nvim_create_autocmd("ColorScheme", {
+      callback = function()
+        -- Standard terminal highlight groups
+        vim.api.nvim_set_hl(0, "Normal", { bg = "NONE" })
+        vim.api.nvim_set_hl(0, "NormalFloat", { bg = "NONE" })
+        vim.api.nvim_set_hl(0, "FloatBorder", { bg = "NONE" })
+
+        -- Snacks.nvim terminal specific groups (if they exist)
+        vim.api.nvim_set_hl(0, "SnacksNotifierInfo", { bg = "NONE" })
+        vim.api.nvim_set_hl(0, "SnacksNotifierWarn", { bg = "NONE" })
+        vim.api.nvim_set_hl(0, "SnacksNotifierError", { bg = "NONE" })
+        vim.api.nvim_set_hl(0, "SnacksNotifierDebug", { bg = "NONE" })
+        vim.api.nvim_set_hl(0, "SnacksNotifierTrace", { bg = "NONE" })
+
+        -- Terminal specific groups
+        vim.api.nvim_set_hl(0, "Terminal", { bg = "NONE" })
+        vim.api.nvim_set_hl(0, "TerminalNormal", { bg = "NONE" })
+      end,
+    })
+
+    -- Also set immediately for current session
+    vim.api.nvim_set_hl(0, "Normal", { bg = "NONE" })
+    vim.api.nvim_set_hl(0, "NormalFloat", { bg = "NONE" })
+    vim.api.nvim_set_hl(0, "FloatBorder", { bg = "NONE" })
+    vim.api.nvim_set_hl(0, "Terminal", { bg = "NONE" })
+    vim.api.nvim_set_hl(0, "TerminalNormal", { bg = "NONE" })
+  end,
 }

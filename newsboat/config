@@ -15,8 +15,8 @@ max-items 500
 # Linux/Ubuntu
 # browser "google-chrome %u"
 
-# WSL - Open Windows Chrome
-browser "cmd.exe /c start chrome %u"
+# WSL - Open Windows Microsoft Edge
+browser "explorer.exe %u"
 
 # macOS
 # browser "open -g -a 'Google Chrome' %u"

@@ -26,7 +26,7 @@ bindkey '^[[F' end-of-line
 unset zle_bracketed_paste
 
 # Environment Variables
-export BAT_THEME="OneHalfDark"
+export BAT_THEME="base16"
 export EDITOR="nvim"
 export VISUAL="nvim"
 export XDG_CONFIG_HOME="$HOME/.config"
