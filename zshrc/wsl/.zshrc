@@ -47,7 +47,7 @@ export PATH="$XDG_CONFIG_HOME/scripts:$PATH:/home/johanhanses/.local/bin"
 export PATH=$PATH:/usr/local/go/bin
 export PATH="$PATH:$SCRIPTS"
 export PATH=~/.npm-global/bin:$PATH
-
+export PATH="$HOME/.local/bin:$PATH"
 export PATH="$PATH:/home/johanhanses/Repos/github.com/johanhanses/dotfiles2025/scripts"
 export PATH="$PATH:/home/johanhanses/Repos/github.com/johanhanses/zettelkasten"
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=6'
