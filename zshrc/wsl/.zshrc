@@ -51,6 +51,7 @@ export PATH="$HOME/.local/bin:$PATH"
 export PATH="$PATH:/home/johanhanses/Repos/github.com/johanhanses/dotfiles2025/scripts"
 export PATH="$PATH:/home/johanhanses/Repos/github.com/johanhanses/zettelkasten"
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=6'
+export XDG_DATA_DIRS="/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share:$XDG_DATA_DIRS"
 
 # fzf configuration
 export FZF_DEFAULT_COMMAND="rg --files"
@@ -98,6 +99,7 @@ alias scripts="cd $DOTFILES/scripts"
 alias rwdot="cd $REPOS/github.com/rwxrob/dot"
 alias rob="cd $REPOS/github.com/rwxrob"
 alias dt="cd $REPOS/github.com/Digital-Tvilling"
+alias obsidian="cd $REPOS/github.com/Digital-Tvilling/obsidian"
 alias plan="cd $REPOS/github.com/Digital-Tvilling/DT-Frontend-planning"
 alias rtm="cd $REPOS/github.com/Digital-Tvilling/dt-frontend-vite"
 alias deploy="cd $REPOS/github.com/Digital-Tvilling/deployment-configuration"
@@ -106,6 +108,7 @@ alias dti="cd $REPOS/github.com/Digital-Tvilling/dti"
 alias home="cd $REPOS/github.com/johanhanses/johanhanses.com/"
 alias sb="cd $SECOND_BRAIN"
 alias config="cd $XDG_CONFIG_HOME"
+alias obsidian="flatpak run md.obsidian.Obsidian"
 
 alias cat="bat"
 alias fast="fast -u --single-line"
