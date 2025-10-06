@@ -24,13 +24,13 @@ return {
     -- Terminal Configuration
     terminal = {
       split_side = "right", -- "left" or "right"
-      split_width_percentage = 0.35,
+      split_width_percentage = 0.40,
     },
 
     -- Diff Integration
     diff_opts = {
       vertical_split = false,
-      open_in_current_tab = false,
+      open_in_current_tab = true,
       keep_terminal_focus = false, -- If true, moves focus back to terminal after diff opens
     },
   },
