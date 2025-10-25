@@ -1,9 +1,17 @@
+-- return {
+--   "folke/tokyonight.nvim",
+--   lazy = true,
+--   opts = {
+--     style = "moon",
+--     transparent = true,
+--   },
+-- }
+
 return {
-  "folke/tokyonight.nvim",
+  "Mofiqul/vscode.nvim",
   lazy = true,
   opts = {
-    style = "moon",
-    transparent = true,
+    transparent = false,
   },
 }
 
@@ -89,7 +97,9 @@ return {
 --
 --     -- Set up and load theme based on appearance
 --     require("onedarkpro").setup({
---       -- Your theme configuration options here
+--       options = {
+--         transparency = true, -- Use transparent background
+--       },
 --     })
 --
 --     if appearance == "dark" then
@@ -111,7 +121,7 @@ return {
 --     })
 --   end,
 -- }
-
+--
 -- return {}
 --
 -- return {

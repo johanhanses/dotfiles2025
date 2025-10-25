@@ -26,7 +26,7 @@ bindkey '^[[F' end-of-line
 unset zle_bracketed_paste
 
 # Environment Variables
-export BAT_THEME="base16"
+export BAT_THEME="Visual Studio Dark+"
 export EDITOR="nvim"
 export VISUAL="nvim"
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -86,12 +86,11 @@ if grep -q Microsoft /proc/version; then
     export SYSTEMD_PAGER=""
 
     # Windows interop (if needed)
-    export WINHOME="/mnt/c/Users/johanhanses"
+    export WINHOME="/mnt/c/Users/johan"
 fi
 
 # Aliases
-alias windows="cd /mnt/c/Users/johanhanses"
-
+alias windows="cd $WINHOME"
 alias repos="cd $REPOS"
 alias ghrepos="cd $GHREPOS"
 alias dot="cd $GHREPOS/dotfiles2025"
@@ -158,6 +157,16 @@ alias d="docker"
 alias dc="docker compose"
 
 alias szr="source ~/.zshrc"
+
+export PATH="$PATH:/mnt/c/Users/johan/scoop/shims"
+
+cursor() {
+    if [ "$1" = "." ]; then
+        /mnt/c/Users/johan/AppData/Local/Programs/cursor/Cursor.exe --remote wsl+${WSL_DISTRO_NAME} "$(pwd)" > /dev/null 2>&1 &
+    else
+        /mnt/c/Users/johan/AppData/Local/Programs/cursor/Cursor.exe --remote wsl+${WSL_DISTRO_NAME} "$@" > /dev/null 2>&1 &
+    fi
+}
 
 # Initialize Starship prompt
 eval "$(starship init zsh)"
