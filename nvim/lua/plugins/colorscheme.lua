@@ -1,19 +1,19 @@
--- return {
---   "folke/tokyonight.nvim",
---   lazy = true,
---   opts = {
---     style = "moon",
---     transparent = true,
---   },
--- }
-
 return {
-  "Mofiqul/vscode.nvim",
+  "folke/tokyonight.nvim",
   lazy = true,
   opts = {
-    transparent = false,
+    style = "moon",
+    transparent = true,
   },
 }
+
+-- return {
+--   "Mofiqul/vscode.nvim",
+--   lazy = true,
+--   opts = {
+--     transparent = false,
+--   },
+-- }
 
 -- return {}
 
