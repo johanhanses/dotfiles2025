@@ -20,7 +20,7 @@ ln -s $DOTFILES/nvim/ $HOME/.config/nvim
 rm -rf $HOME/.config/tmux
 ln -sf $DOTFILES/tmux/ $HOME/.config/tmux
 # Override with WSL-specific tmux config
-ln -sf $DOTFILES/tmux/wsl/tmux.conf $HOME/.config/tmux/tmux.conf
+# ln -sf $DOTFILES/tmux/wsl/tmux.conf $HOME/.config/tmux/tmux.conf
 
 # Git
 ln -sf $DOTFILES/.gitconfig $HOME/.gitconfig
@@ -45,6 +45,10 @@ ln -sf $DOTFILES/newsboat/ $HOME/.config/newsboat
 # ghostty
 # rm -rf $HOME/.config/ghostty
 # ln -sf $DOTFILES/ghostty/ $HOME/.config/ghostty
+
+# yazi
+rm -rf $HOME/.config/yazi
+ln -sf $DOTFILES/yazi/ $HOME/.config/yazi
 
 # Download and install eza for ARM64
 wget https://github.com/eza-community/eza/releases/latest/download/eza_aarch64-unknown-linux-gnu.tar.gz

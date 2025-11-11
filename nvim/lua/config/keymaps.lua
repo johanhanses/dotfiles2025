@@ -3,10 +3,12 @@
 -- Add any additional keymaps here
 
 vim.g.mapleader = " "
-vim.keymap.set("i", "jk", "<ESC>", { desc = "Exit insert mode with jk" })
+-- vim.keymap.set("i", "jk", "<ESC>", { desc = "Exit insert mode with jk" })
 vim.keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
 
 -- Move selected lines down
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move selected lines down" })
 -- Move selected lines up
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move selected lines up" })
+
+vim.keymap.set("n", "ö", "$", { desc = "Jump to end of line" })

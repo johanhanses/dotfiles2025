@@ -1,0 +1,78 @@
+#!/usr/bin/env bash
+
+# Pomodoro Timer Script
+# Usage: pomo [work_minutes] [break_minutes]
+
+# Default times (in minutes)
+WORK_TIME=${1:-25}
+BREAK_TIME=${2:-5}
+
+# Function to send notification
+notify() {
+    local title="$1"
+    local message="$2"
+
+    # Try notify-send (Linux/WSL)
+    if command -v notify-send &> /dev/null; then
+        notify-send "$title" "$message" -u critical
+    fi
+
+    # Terminal bell
+    echo -e "\a"
+
+    # Print to terminal
+    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    echo "$title"
+    echo "$message"
+    echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+}
+
+# Function to display timer
+countdown() {
+    local seconds=$1
+    local label="$2"
+
+    while [ $seconds -gt 0 ]; do
+        printf "\r🍅 %s: %02d:%02d remaining" "$label" $((seconds/60)) $((seconds%60))
+        sleep 1
+        ((seconds--))
+    done
+    echo ""
+}
+
+# Main loop
+pomodoro_count=0
+
+echo "🍅 Pomodoro Timer Started!"
+echo "Work: ${WORK_TIME}m | Break: ${BREAK_TIME}m"
+echo "Press Ctrl+C to stop"
+echo ""
+
+while true; do
+    ((pomodoro_count++))
+
+    # Work session
+    echo "Starting Pomodoro #${pomodoro_count}"
+    countdown $((WORK_TIME * 60)) "Work"
+    notify "🍅 Pomodoro Complete!" "Time for a ${BREAK_TIME}-minute break!"
+
+    # Ask if user wants to continue
+    read -t 10 -p "Start break? (Y/n): " response
+    if [[ "$response" =~ ^[Nn]$ ]]; then
+        echo "Pomodoro session ended."
+        exit 0
+    fi
+
+    # Break session
+    countdown $((BREAK_TIME * 60)) "Break"
+    notify "⏰ Break Over!" "Ready for another pomodoro?"
+
+    # Ask if user wants to continue
+    read -t 10 -p "Start next pomodoro? (Y/n): " response
+    if [[ "$response" =~ ^[Nn]$ ]]; then
+        echo "Completed ${pomodoro_count} pomodoro(s). Great work!"
+        exit 0
+    fi
+
+    echo ""
+done

@@ -13,3 +13,15 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.wo.conceallevel = 0
   end,
 })
+
+-- Disable completions for markdown files
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "markdown",
+  callback = function()
+    -- Disable blink.cmp
+    vim.b.blink_cmp_enabled = false
+
+    -- Disable Copilot
+    vim.b.copilot_enabled = false
+  end,
+})

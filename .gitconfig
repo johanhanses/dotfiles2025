@@ -31,3 +31,5 @@
   log = delta
   reflog = delta
   show = delta
+[credential]
+	helper = store

@@ -6,7 +6,9 @@
       "Bash(tmux list-panes:*)",
       "Bash(ps:*)",
       "Bash(tmux display-message:*)",
-      "WebSearch"
+      "WebSearch",
+      "Bash(lastshot)",
+      "Read(//home/johanhanses/Repos/github.com/johanhanses/dotfiles2025/tmp/**)"
     ],
     "deny": [],
     "ask": []
