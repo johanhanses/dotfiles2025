@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Bash(npm i:*)",
+      "Bash(brew install:*)",
+      "Bash(/Users/johanhanses/Repos/github.com/johanhanses/dotfiles2025/nvim/install-plugins.sh:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

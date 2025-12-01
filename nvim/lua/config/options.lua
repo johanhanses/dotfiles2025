@@ -1,24 +1,64 @@
--- Options are automatically loaded before lazy.nvim startup
--- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
--- Add any additional options here
+-- Editor options
 
-vim.opt.wrap = true
-vim.lsp.inlay_hint.enable(false)
-vim.opt.relativenumber = false
+local opt = vim.opt
 
--- Disable listchars symbols for spaces and tabs
-vim.opt.list = false
+-- Indentation
+opt.tabstop = 2
+opt.shiftwidth = 2
+opt.softtabstop = 2
+opt.expandtab = true
+opt.smartindent = true
 
--- vim.opt.clipboard = "unnamedplus"
+-- Line numbers
+opt.number = true
+opt.relativenumber = false
 
--- vim.g.clipboard = {
---   name = "wl-clipboard",
---   copy = {
---     ["+"] = "wl-copy",
---     ["*"] = "wl-copy",
---   },
---   paste = {
---     ["+"] = "wl-paste",
---     ["*"] = "wl-paste",
---   },
--- }
+-- Visual
+opt.cursorline = true
+opt.termguicolors = true
+opt.signcolumn = "yes"
+opt.colorcolumn = "+1"
+opt.scrolloff = 3
+opt.wrap = true
+
+-- Search
+opt.ignorecase = true
+opt.smartcase = true
+opt.hlsearch = true
+opt.incsearch = true
+
+-- Behavior
+opt.hidden = true
+opt.swapfile = false
+opt.backup = false
+opt.undofile = true
+opt.updatetime = 250
+opt.timeoutlen = 300
+
+-- Clipboard (system integration)
+opt.clipboard = "unnamedplus"
+
+-- Mouse
+opt.mouse = "a"
+
+-- Splits
+opt.splitright = true
+opt.splitbelow = true
+
+-- Grep (use ripgrep)
+opt.grepprg = "rg --vimgrep --smart-case"
+opt.grepformat = "%f:%l:%c:%m"
+
+-- Completion
+opt.completeopt = "menu,menuone,noinsert,preview"
+
+-- Diff
+opt.diffopt:append("vertical")
+opt.diffopt:append("filler")
+
+-- Disable list characters
+opt.list = false
+
+-- Filetype detection
+vim.cmd("filetype plugin indent on")
+vim.cmd("syntax enable")

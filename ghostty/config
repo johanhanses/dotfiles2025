@@ -21,32 +21,79 @@
 # # separated by equals signs.
 
 # font-family = SauceCodePro Nerd Font
-font-family = JetBrainsMono Nerd Font
+font-family = JetBrains Mono Nerd Font
 # font-family = BlexMono Nerd Font
 # font-family = Liga SFMono Nerd Font
-font-size = 14
-font-style = Bold
-font-style-bold = ExtraBold
-font-style-italic = Bold Italic
-font-style-bold-italic = ExtraBold Italic
+font-size = 13
+# font-style = Bold
+# font-style-bold = ExtraBold
+# font-style-italic = Bold Italic
+# font-style-bold-italic = ExtraBold Italic
+font-thicken = true
 
-window-padding-x = 12
+# adjust-cell-height = 20%
+
+# window-padding-x = 12
 
 # theme = dark:catppuccin-mocha, light:catppuccin-latte
 # theme = dark:iTerm2 Solarized Dark, light:iTerm2 Solarized Light
 # theme = dark:Atom, light:AtomOneLight
-theme = dark:One Half Dark, light:One Half Light
+theme = dark:Zenwritten Dark, light:Zenwritten Light
+theme = dark:Nord, light:Nord Light
 # theme = dark:tokyonight, light:tokyonight-day
 # theme = dark:GitHub-Dark-Colorblind, light:GitHub-Light-Colorblind
 # theme = "Solarized Dark - Patched"
 
-# background-opacity = 0.9
+# background-opacity = 0.85
 background-blur-radius = 20
 # background = #031219
 
+cursor-opacity = 1
 cursor-style = block
-shell-integration-features = no-cursor
-#
+cursor-style-blink = false
+cursor-click-to-move = true
+# shell-integration-features = no-cursor
+
+term = xterm-ghostty
+
+desktop-notifications = true
+bold-is-bright = true
+
+custom-shader-animation = false
+macos-non-native-fullscreen = false
+
+macos-titlebar-style = transparent
+macos-option-as-alt = false
+macos-window-shadow = true
+
+clipboard-paste-bracketed-safe = true
+
+wait-after-command = false
+# in bytes:
+scrollback-limit = 10000000
+link-url = true
+fullscreen = false
+title =
+working-directory = home
+
+window-padding-x = 5
+window-padding-y = 0
+window-padding-balance = false
+# window-padding-color = background
+window-vsync = true
+window-inherit-working-directory = true
+window-inherit-font-size = true
+
+window-decoration = false
+window-title-font-family = Inter
+window-theme = auto
+window-save-state = default
+window-new-tab-position = current
+
+
+
+
+
 # # Spacing around the equals sign does not matter.
 # # All of these are identical:
 # key=value

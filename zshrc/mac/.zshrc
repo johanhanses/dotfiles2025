@@ -10,27 +10,14 @@ setopt inc_append_history
 # Enable completions
 autoload -Uz compinit && compinit
 
-# ZSH plugins
-# # First install with brew (intel)
-# source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-# source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-
 # # First install with brew (apple sil)
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-# Enable word movement with Ctrl+Left/Right
-# bindkey '^[[1;5D' backward-word
-# bindkey '^[[1;5C' forward-word
-
-# # Enable beginning/end of line with Fn+Left/Right or Home/End
-# bindkey '^[[H' beginning-of-line
-# bindkey '^[[F' end-of-line
-
 unset zle_bracketed_paste
 
 # Environment Variables
-export BAT_THEME="OneHalfDark"
+export BAT_THEME="Visual Studio Dark+"
 export EDITOR="nvim"
 export VISUAL="nvim"
 # export BROWSER="firefox"
@@ -55,28 +42,27 @@ export LKAB_DIR="$WORK_DIR/.lkab"
 export ONPREM_CONFIG_DIR="$LKAB_DIR/on-prem/config"
 export ONPREM_CERT_DIR="$LKAB_DIR/on-prem/cert"
 export PATH="$XDG_CONFIG_HOME/scripts:$PATH:/home/johanhanses/.local/bin"
-export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
 export PATH="$PATH:/Users/johanhanses/Repos/github.com/johanhanses/dotfiles2025/scripts"
 export PATH="$PATH:/Users/johanhanses/Repos/github.com/johanhanses/zettelkasten"
-export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=6'
+# export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=6'
+export PATH="$HOME/.local/bin:$PATH"
 export PATH="/opt/homebrew/opt/node@22/bin:$PATH"
 export LDFLAGS="-L/opt/homebrew/opt/node@22/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/node@22/include"
 
-# fzf default options
-export FZF_DEFAULT_COMMAND="rg --files"
-export FZF_DEFAULT_OPTS="--height 90% --border"
+export AWS_PROFILE=saml
 
-# fzf CTRL-T configuration
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export FZF_CTRL_T_OPTS="--preview 'bat -n --color=always {}' --bind 'ctrl-/:change-preview-window(down|hidden|)'"
+KUBECONFIG=~/.kube/config
 
-# fzf ALT-C configuration
-export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
+export ZSH="$HOME/.oh-my-zsh"
 
-# fzf tmux configuration
-export FZF_TMUX=1
-export FZF_TMUX_OPTS=""
+ZSH_THEME="robbyrussell"
+
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+
+plugins=(git)
+
+source $ZSH/oh-my-zsh.sh
 
 # Aliases
 alias repos="cd $REPOS"
@@ -99,12 +85,13 @@ alias cat="bat"
 alias fast="fast -u --single-line"
 alias speed="curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python3 -"
 
-alias htop="btm -b"
+# alias htop="btm -b"
 # alias neofetch="fastfetch"
 alias photos="npx --yes icloudpd --directory ~/icloud-photos --username johanhanses@gmail.com --watch-with-interval 3600"
 alias nv="nvim"
 alias c="clear"
 alias cl="claude"
+alias ca="cursor-agent"
 
 alias n="npm"
 alias nr="npm run"
@@ -136,23 +123,21 @@ alias tk="tmux kill-server"
 alias tl="tmux ls"
 alias ta="tmux a"
 
+alias z="zellij"
 
 alias d="docker"
 alias dc="docker compose"
 
 alias szr="source ~/.zshrc"
 
-# alias dark="gsettings set org.cinnamon.theme name 'Mint-Y-Dark'"
-# alias light="gsettings set org.cinnamon.theme name 'Mint-Y'"
-
-# alias dark="kitten themes --reload-in=all One Half Dark && gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark' && export BAT_THEME='OneHalfDark'"
-# alias light="kitten themes --reload-in=all One Half Light && gsettings set org.gnome.desktop.interface color-scheme 'prefer-light' && export BAT_THEME='OneHalfLight'"
-
-# alias dark="gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark' && export BAT_THEME='OneHalfDark'"
-# alias light="gsettings set org.gnome.desktop.interface color-scheme 'prefer-light' && export BAT_THEME='OneHalfLight'"
-
-
-# Initialize Starship prompt
-eval "$(starship init zsh)"
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# Lägg till i ~/.zshrc
+# if [[ "$(uname -s)" == "Darwin" ]]; then
+#   # Använd osascript för att få korrekt dark mode status (funkar med Auto mode)
+#   is_dark=$(osascript -e 'tell application "System Events" to tell appearance preferences to get dark mode')
+#
+#   if [[ "$is_dark" == "true" ]]; then
+#     osascript -e 'tell application "Terminal" to set current settings of tabs of windows to settings set "ayu-dark"' &> /dev/null
+#   else
+#     osascript -e 'tell application "Terminal" to set current settings of tabs of windows to settings set "ayu-light"' &> /dev/null
+#   fi
+# fi

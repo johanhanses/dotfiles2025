@@ -6,19 +6,19 @@ DOTFILES="$(pwd)"
 DOTFILES_PRIVATE="$HOME/Repos/github.com/johanhanses/dotfiles-private"
 
 # Zsh
-ln -sf $DOTFILES/zshrc/wsl/.zshrc $HOME/.zshrc
+# ln -sf $DOTFILES/zshrc/wsl/.zshrc $HOME/.zshrc
 
 # Neovim
-rm -rf $HOME/.config/nvim
-ln -s $DOTFILES/nvim/ $HOME/.config/nvim
+# rm -rf $HOME/.config/nvim
+# ln -s $DOTFILES/nvim/ $HOME/.config/nvim
 
 # Kitty
 # rm -rf $HOME/.config/kitty
 # ln -sf $DOTFILES/kitty/ $HOME/.config/kitty
 
 # Tmux
-rm -rf $HOME/.config/tmux
-ln -sf $DOTFILES/tmux/ $HOME/.config/tmux
+# rm -rf $HOME/.config/tmux
+# ln -sf $DOTFILES/tmux/ $HOME/.config/tmux
 # Override with WSL-specific tmux config
 # ln -sf $DOTFILES/tmux/wsl/tmux.conf $HOME/.config/tmux/tmux.conf
 
@@ -47,14 +47,14 @@ ln -sf $DOTFILES/newsboat/ $HOME/.config/newsboat
 # ln -sf $DOTFILES/ghostty/ $HOME/.config/ghostty
 
 # yazi
-rm -rf $HOME/.config/yazi
-ln -sf $DOTFILES/yazi/ $HOME/.config/yazi
+# rm -rf $HOME/.config/yazi
+# ln -sf $DOTFILES/yazi/ $HOME/.config/yazi
 
 # Download and install eza for ARM64
-wget https://github.com/eza-community/eza/releases/latest/download/eza_aarch64-unknown-linux-gnu.tar.gz
-tar -xzf eza_aarch64-unknown-linux-gnu.tar.gz
-sudo mv eza /usr/local/bin/
-sudo chmod +x /usr/local/bin/eza
-
-# Clean up the downloaded archive
-rm eza_aarch64-unknown-linux-gnu.tar.gz
+# wget https://github.com/eza-community/eza/releases/latest/download/eza_aarch64-unknown-linux-gnu.tar.gz
+# tar -xzf eza_aarch64-unknown-linux-gnu.tar.gz
+# sudo mv eza /usr/local/bin/
+# sudo chmod +x /usr/local/bin/eza
+#
+# # Clean up the downloaded archive
+# rm eza_aarch64-unknown-linux-gnu.tar.gz

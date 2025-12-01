@@ -16,10 +16,10 @@ max-items 500
 # browser "google-chrome %u"
 
 # WSL - Open Windows Microsoft Edge
-browser "explorer.exe %u"
+# browser "explorer.exe %u"
 
 # macOS
-# browser "open -g -a 'Google Chrome' %u"
+browser "open -g -a 'Google Chrome' %u"
 # browser "open -g -a 'Safari' %u"
 
 # Alternative macOS syntax:
