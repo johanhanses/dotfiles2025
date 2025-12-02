@@ -45,15 +45,26 @@ end
 vim.o.background = get_os_appearance()
 
 -- Set colorscheme based on background
+local function load_onedark_theme(style)
+  local ok, onedark = pcall(require, 'onedark')
+  if ok then
+    onedark.setup({
+      style = style,
+    })
+    onedark.load()
+  else
+    -- Fallback to default colorscheme if onedark is not installed
+    vim.notify("onedark.nvim not found. Run ./nvim/install-plugins.sh to install it.", vim.log.levels.WARN)
+    vim.cmd.colorscheme("default")
+  end
+end
+
 if vim.o.background == "light" then
-  -- Use onenord for light mode (Nord-inspired light theme)
-  require('onenord').setup({
-    theme = "light",
-  })
-  vim.cmd.colorscheme("onenord")
+  -- Use Atom One Light for light mode
+  load_onedark_theme('light')
 else
-  -- Use nord for dark mode
-  vim.cmd.colorscheme("nord")
+  -- Use Atom One Dark for dark mode
+  load_onedark_theme('dark')
 end
 
 -- Treesitter highlighting (enable for all buffers)
@@ -72,12 +83,9 @@ vim.api.nvim_create_autocmd("FocusGained", {
       vim.o.background = new_bg
       -- Reload colorscheme based on new background
       if new_bg == "light" then
-        require('onenord').setup({
-          theme = "light",
-        })
-        vim.cmd.colorscheme("onenord")
+        load_onedark_theme('light')
       else
-        vim.cmd.colorscheme("nord")
+        load_onedark_theme('dark')
       end
     end
   end,

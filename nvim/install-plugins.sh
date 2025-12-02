@@ -67,8 +67,7 @@ install_plugin "zbirenbaum/copilot.lua"
 install_plugin "CopilotC-Nvim/CopilotChat.nvim"
 
 # Colorscheme
-install_plugin "shaunsingh/nord.nvim"
-install_plugin "rmehri01/onenord.nvim"
+install_plugin "navarasu/onedark.nvim"
 
 # File explorer
 install_plugin "nvim-neo-tree/neo-tree.nvim"
