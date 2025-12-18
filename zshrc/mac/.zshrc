@@ -54,15 +54,15 @@ export AWS_PROFILE=saml
 
 KUBECONFIG=~/.kube/config
 
-export ZSH="$HOME/.oh-my-zsh"
-
-ZSH_THEME="robbyrussell"
-
+# Oh My Zsh (disabled in favor of Starship)
+# export ZSH="$HOME/.oh-my-zsh"
+# ZSH_THEME="robbyrussell"
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+# plugins=(git)
+# source $ZSH/oh-my-zsh.sh
 
-plugins=(git)
-
-source $ZSH/oh-my-zsh.sh
+# Initialize Starship prompt
+eval "$(starship init zsh)"
 
 # Aliases
 alias repos="cd $REPOS"
@@ -117,6 +117,7 @@ alias gcm="git commit -m"
 alias wip="git commit -m \"wip\" --no-verify"
 
 alias k="kubectl"
+alias kc="kubectx"
 
 alias t="tmux"
 alias tk="tmux kill-server"
