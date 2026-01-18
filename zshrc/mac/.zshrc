@@ -20,14 +20,14 @@ unset zle_bracketed_paste
 export BAT_THEME="Visual Studio Dark+"
 export EDITOR="nvim"
 export VISUAL="nvim"
-# export BROWSER="firefox"
+export BROWSER="firefox"
 
 # Updated to use Google Chrome instead of Firefox
 # export BROWSER="google-chrome"
 
 # Alternative options for macOS:
-export BROWSER="open -a 'Google Chrome'"
-export BROWSER="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+# export BROWSER="open -a 'Google Chrome'"
+# export BROWSER="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 # export BROWSER="open -a 'Safari'"
 
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -54,9 +54,9 @@ export AWS_PROFILE=saml
 
 KUBECONFIG=~/.kube/config
 
-# Oh My Zsh (disabled in favor of Starship)
+# Oh My Zsh
 # export ZSH="$HOME/.oh-my-zsh"
-# ZSH_THEME="robbyrussell"
+# ZSH_THEME="agnoster"
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 # plugins=(git)
 # source $ZSH/oh-my-zsh.sh
@@ -73,7 +73,7 @@ alias rwdot="cd $REPOS/github.com/rwxrob/dot"
 alias rob="cd $REPOS/github.com/rwxrob"
 alias dt="cd $REPOS/github.com/Digital-Tvilling"
 alias plan="cd $REPOS/github.com/Digital-Tvilling/DT-Frontend-planning"
-alias rtm="cd $REPOS/github.com/Digital-Tvilling/dt-frontend-vite"
+alias rtm="cd $REPOS/github.com/Digital-Tvilling/dt-apps"
 alias deploy="cd $REPOS/github.com/Digital-Tvilling/deployment-configuration"
 alias backend="cd $REPOS/github.com/Digital-Tvilling/deployment-configuration/external/localhost"
 alias dti="cd $REPOS/github.com/Digital-Tvilling/dti"
@@ -86,7 +86,7 @@ alias fast="fast -u --single-line"
 alias speed="curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python3 -"
 
 # alias htop="btm -b"
-# alias neofetch="fastfetch"
+alias neofetch="fastfetch"
 alias photos="npx --yes icloudpd --directory ~/icloud-photos --username johanhanses@gmail.com --watch-with-interval 3600"
 alias nv="nvim"
 alias c="clear"
