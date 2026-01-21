@@ -43,7 +43,7 @@ font-thicken = true
 # theme = dark:GitHub-Dark-Colorblind, light:GitHub-Light-Colorblind
 # theme = "Solarized Dark - Patched"
 # theme = dark:iTerm2 Tango Dark, light:iTerm2 Tango Light
-theme = dark:GitHub Dark Default, light:GitHub Light Default
+theme = dark:GitHub Dark Dimmed, light:GitHub Light Default
 
 # background-opacity = 0.85
 background-blur-radius = 20
